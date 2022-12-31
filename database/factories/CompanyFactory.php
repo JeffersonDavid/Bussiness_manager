@@ -20,6 +20,7 @@ class CompanyFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'active'=>rand(0,1),
+            'secret_key'=>"test",
             'description' =>'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro alias ratione fuga repellat dolores mollitia? Harum accusantium possimus expedita natus, nobis, molestias aperiam facilis doloribus, ut officiis reiciendis asperiores saepe.',
         ];
     }

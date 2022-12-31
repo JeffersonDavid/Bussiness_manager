@@ -7,22 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Company extends Model
-{
 
+class Nav extends Model
+{
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
-        'name',
-        'email',
-        'description',
-        'active',
+        'label_link',
+        'page_link',
+        'page_id'
     ];
 
 
-    public function crm()
-    {
-        return $this->hasOne(Phone::class, 'id', 'id');
+    public function nav(){
+        return $this->hasMany(Nav::class, 'id', 'page_id');
     }
-
 }

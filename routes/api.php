@@ -57,7 +57,7 @@ Route::middleware('auth:sanctum')->get('/dashboarding', function (Request $reque
 
 
 Route::post('/tokens/create', function (Request $request) {
-    $user = User::find(101);
+    $user = User::find(11);
     $token = $user->createToken('token', ['server:update'])->plainTextToken;
     return response()->json([
         'token'=>$token
@@ -68,14 +68,8 @@ Route::post('/eventest', function (Request $request) {
 
     $company = Company::create(['name' => 'Facebook',
     'email'=>'ss@32jkdsjsj2332.com','description'=>'test','active'=>1]);
-
     logger('Disparando evento');
     event(new TestEvent($company));
-
-
-
-
-
    return response()->json([
     'status'=>'puesto en cola'
 ]);
